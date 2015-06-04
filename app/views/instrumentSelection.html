@@ -1,0 +1,25 @@
+<section style="display:flex; flex-direction:row">
+	<section style=" background:blue; width:20%">
+		<div ng-repeat="note in instrument.notes">
+			{{$index + " | " + note.value + " " +note.octave }}
+		</div>
+	</section>
+
+	<form>
+		<select ng-model="note.value">
+			<option ng-repeat="i in notes" value="{{i}}">{{i}}</option>
+		</select>
+		<select ng-model="note.octave">
+			<option ng-repeat="i in getNumber(octaves) track by $index" value="{{$index}}">{{$index}}</option>
+		</select>
+		<input type="submit" ng-click="addNote(note)" value="add note">
+	</form>
+
+	<form>
+		<input ng-model="instrument.title"/>
+		<input type="submit" ng-click="submitInsturment(instrument)" value="submit"> 
+	</form>
+</section>
+
+{{note}}
+
